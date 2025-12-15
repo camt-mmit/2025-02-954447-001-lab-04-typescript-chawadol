@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <link rel="stylesheet" href="./css/material-symbols.css" />
+    <link rel="stylesheet" href="./css/dom.css" />
+
+    <script type="module" src="./js/dom-06-final.js"></script>
+
+    <title>DOM-06: Final</title>
+  </head>
+  <body>
+    <button class="app-cl-btn app-cl-primary app-cmd-add-section">
+      <i class="material-symbols-outlined">add</i> Add Section
+    </button>
+    <div class="app-cmp-main-container">
+      <template class="app-tmp-section">
+        <article class="app-cmp-section">
+          <header>
+            <h2 class="app-title-section"></h2>
+            <button
+              type="button"
+              class="app-cl-btn app-cl-warn app-cmd-remove-section"
+            >
+              <i class="material-symbols-outlined">delete_forever</i>
+            </button>
+            <button
+              type="button"
+              class="app-cl-btn app-cl-primary app-cmd-add-number-input"
+            >
+              <i class="material-symbols-outlined">add</i>
+            </button>
+          </header>
+
+          <section class="app-cmp-number-list">
+            <template class="app-tmp-number-component">
+              <div class="app-cmp-number">
+                <label>
+                  <b>Number <span class="app-title-number"></span></b>
+                  <input type="number" class="app-inp-number" value="0" />
+                </label>
+                <button class="app-cmd-remove-number-input">
+                  <i class="material-symbols-outlined">delete_forever</i>
+                </button>
+              </div>
+            </template>
+          </section>
+
+          <section>
+            <div class="app-cmp-number">
+              <label>
+                <b>Result:</b>
+                <output class="app-out-number">0</output>
+              </label>
+            </div>
+          </section>
+        </article>
+      </template>
+    </div>
+
+    <script type="module" src="./js/dom-06-final.js"></script>
+  </body>
+</html>

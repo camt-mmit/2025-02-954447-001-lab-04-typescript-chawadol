@@ -1,3 +1,3 @@
-console.log("Hello, World.");
+console.log('Hello world.');
 export {};
 //# sourceMappingURL=hello-world.js.map

@@ -6,24 +6,24 @@
  * @returns {HTMLElement}
  */
 export function createComponent(componentElem) {
-    const sectionTemplate = componentElem.querySelector(".app-tmp-section");
-    const mainContainer = componentElem.querySelector(".app-cmp-main-container");
+    const sectionTemplate = componentElem.querySelector('.app-tmp-section');
+    const mainContainer = componentElem.querySelector('.app-cmp-main-container');
     if (!sectionTemplate) {
-        throw new Error("Template .app-tmp-section is not found");
+        throw new Error('Template .app-tmp-section is not found');
     }
     if (!mainContainer) {
-        throw new Error("Main container .app-cmp-main-container is not found");
+        throw new Error('Main container .app-cmp-main-container is not found');
     }
     // ------------------------------
     // Regenerate Section Titles
     // ------------------------------
     const regenerateSectionTitlesAndStatus = () => {
-        const sections = mainContainer.querySelectorAll(".app-cmp-section");
+        const sections = mainContainer.querySelectorAll('.app-cmp-section');
         sections.forEach((section, index) => {
-            const title = section.querySelector(".app-title-section");
+            const title = section.querySelector('.app-title-section');
             if (title)
                 title.textContent = `Section ${index + 1}`;
-            const removeBtn = section.querySelector(".app-cmd-remove-section");
+            const removeBtn = section.querySelector('.app-cmd-remove-section');
             if (removeBtn) {
                 removeBtn.disabled = sections.length === 1;
             }
@@ -35,21 +35,21 @@ export function createComponent(componentElem) {
     const createSectionComponent = () => {
         const fragment = sectionTemplate.content.cloneNode(true);
         const sectionContainer = fragment.firstElementChild;
-        const numberTemplate = sectionContainer.querySelector(".app-tmp-number-component");
-        const inputListContainer = sectionContainer.querySelector(".app-cmp-number-list");
+        const numberTemplate = sectionContainer.querySelector('.app-tmp-number-component');
+        const inputListContainer = sectionContainer.querySelector('.app-cmp-number-list');
         if (!numberTemplate || !inputListContainer) {
-            throw new Error("Inner template or container not found inside section");
+            throw new Error('Inner template or container not found inside section');
         }
         // ------------------------------
         // Update number item titles
         // ------------------------------
         const regenerateNumberTitlesAndStatus = () => {
-            const inputItems = Array.from(inputListContainer.querySelectorAll(".app-cmp-number"));
+            const inputItems = Array.from(inputListContainer.querySelectorAll('.app-cmp-number'));
             inputItems.forEach((inputContainer, index) => {
-                const title = inputContainer.querySelector(".app-title-number");
+                const title = inputContainer.querySelector('.app-title-number');
                 if (title)
                     title.textContent = `${index + 1}`;
-                const removeBtn = inputContainer.querySelector(".app-cmd-remove-number-input");
+                const removeBtn = inputContainer.querySelector('.app-cmd-remove-number-input');
                 if (removeBtn) {
                     removeBtn.disabled = inputItems.length === 1;
                 }
@@ -59,11 +59,11 @@ export function createComponent(componentElem) {
         // Recalculate sum for section
         // ------------------------------
         const recalculateResult = () => {
-            const result = Array.from(inputListContainer.querySelectorAll(".app-inp-number")).reduce((sum, elem) => {
+            const result = Array.from(inputListContainer.querySelectorAll('.app-inp-number')).reduce((sum, elem) => {
                 return (sum + (Number.isNaN(elem.valueAsNumber) ? 0 : elem.valueAsNumber));
             }, 0);
             sectionContainer
-                .querySelectorAll(".app-out-number")
+                .querySelectorAll('.app-out-number')
                 .forEach((elem) => (elem.textContent = result.toLocaleString()));
         };
         // ------------------------------
@@ -72,9 +72,9 @@ export function createComponent(componentElem) {
         const createInputComponent = () => {
             const frag = numberTemplate.content.cloneNode(true);
             const inputContainer = frag.firstElementChild;
-            inputContainer.addEventListener("click", (ev) => {
+            inputContainer.addEventListener('click', (ev) => {
                 const target = ev.target;
-                if (target?.matches(".app-cmd-remove-number-input")) {
+                if (target?.matches('.app-cmd-remove-number-input')) {
                     inputContainer.remove();
                     regenerateNumberTitlesAndStatus();
                     recalculateResult();
@@ -87,21 +87,21 @@ export function createComponent(componentElem) {
         // ------------------------------
         // Input change event
         // ------------------------------
-        inputListContainer.addEventListener("change", (ev) => {
+        inputListContainer.addEventListener('change', (ev) => {
             const target = ev.target;
-            if (target?.matches(".app-inp-number")) {
+            if (target?.matches('.app-inp-number')) {
                 recalculateResult();
             }
         });
         // ------------------------------
         // Section level click events
         // ------------------------------
-        sectionContainer.addEventListener("click", (ev) => {
+        sectionContainer.addEventListener('click', (ev) => {
             const target = ev.target;
-            if (target?.matches(".app-cmd-add-number-input")) {
+            if (target?.matches('.app-cmd-add-number-input')) {
                 createInputComponent();
             }
-            if (target?.matches(".app-cmd-remove-section")) {
+            if (target?.matches('.app-cmd-remove-section')) {
                 sectionContainer.remove();
                 regenerateSectionTitlesAndStatus();
             }
@@ -114,9 +114,9 @@ export function createComponent(componentElem) {
     // ------------------------------
     // Add section button
     // ------------------------------
-    componentElem.addEventListener("click", (ev) => {
+    componentElem.addEventListener('click', (ev) => {
         const target = ev.target;
-        if (target?.matches(".app-cmd-add-section")) {
+        if (target?.matches('.app-cmd-add-section')) {
             createSectionComponent();
         }
     });

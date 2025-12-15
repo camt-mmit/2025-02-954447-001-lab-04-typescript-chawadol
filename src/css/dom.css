@@ -1,0 +1,146 @@
+:root {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  --app-monospace-font: ui-monospace, monospace;
+}
+
+:root,
+body {
+  padding: 20px;
+  margin: 0px;
+}
+
+.app-cl-primary {
+  --app-color: rgb(28, 70, 255);
+}
+
+.app-cl-warn {
+  --app-color: rgb(241, 78, 78);
+}
+
+.app-cl-column-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+input[type="number"],
+.app-cl-number {
+  font-family: var(--app-monospace-font);
+  text-align: right;
+}
+
+.app-cl-btn {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1ch;
+  font-weight: bold;
+  color: var(--app-color, inherit);
+  background: white;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  cursor: pointer;
+
+  & > * {
+    pointer-events: none;
+  }
+
+  &.app-cl-icon {
+    padding: 0.2em;
+    border: none;
+  }
+
+  &:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
+}
+
+.app-cmp-number {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 4px;
+
+  & > label {
+    flex: 1 0 auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    & > b {
+      display: inherit;
+      flex-direction: inherit;
+      align-items: inherit;
+      margin-right: 1ch;
+      width: 10ch;
+
+      & > .app-title-number {
+        margin-left: auto;
+        font-family: var(--app-monospace-font);
+      }
+    }
+
+    & > :is(input, output) {
+      flex: 1 1 auto;
+      box-sizing: border-box;
+      height: 36px;
+      padding: 4px 8px;
+      margin-right: 8px;
+    }
+
+    & > output {
+      font-weight: bold;
+      text-decoration: underline double;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      border: none;
+    }
+  }
+}
+
+.app-cmp-section {
+  display: flex;
+  flex-direction: column;
+  width: min(400px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+
+  & > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+
+    & > label {
+      flex-grow: 1;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+
+  .app-cmp-number-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+  }
+}
+
+.app-ctl-global {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.app-cmp-main-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 4rem;
+}

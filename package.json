@@ -1,0 +1,25 @@
+{
+  "name": "week-04",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "watch-file": "copy-and-watch --watch src/**/*.{html,css} dist/",
+    "watch-ts": "tsc --watch --preserveWatchOutput",
+    "watch": "concurrently \"yarn:watch-*\"",
+    "init-target": "copy-and-watch --clean src/**/*.{html,css} dist/",
+    "lint": "prettier --check src/**/*ts && eslint src/**/*.ts",
+    "build": "yarn run lint && yarn run init-target && tsc"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "concurrently": "^9.2.1",
+    "copy-and-watch": "^0.1.8",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1"
+  }
+}
