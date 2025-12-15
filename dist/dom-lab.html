@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="./css/material-symbols.css" />
+    <link rel="stylesheet" href="./css/dom.css" />
+    <script type="module" src="./js/dom-lab.js"></script>
+    <title>DOM: LAB</title>
+  </head>
+
+  <body>
+    <button
+      type="button"
+      class="app-cl-btn app-cl-primary app-cmd-add-section"
+      style="margin-bottom: 1rem"
+    >
+      <i class="material-symbols-outlined">post_add</i>
+      Add Section
+    </button>
+    <div id="app-section-list"></div>
+    <template id="app-section-template">
+      <article class="app-cmp-section">
+        <header>
+          <b>Section <span class="app-title-number"></span></b>
+          <br />
+          <button
+            type="button"
+            class="app-cl-btn app-cl-primary app-cmd-add-number-input"
+          >
+            <i class="material-symbols-outlined">add</i>
+            Add
+          </button>
+          <button
+            type="button"
+            class="app-cl-btn app-cl-warn app-cl-icon app-cmd-remove-section"
+          >
+            <i class="material-symbols-outlined">delete_forever</i>
+          </button>
+        </header>
+
+        <div class="app-cl-column-container">
+          <section class="app-cmp-number-list">
+            <template class="app-tmp-number-component">
+              <div class="app-cmp-number">
+                <label>
+                  <b>Number <span class="app-title-number"></span></b>
+                  <i class="material-symbols-outlined">more_vert</i>
+                  <input type="number" class="app-inp-number" value="0" />
+                </label>
+                <button
+                  type="button"
+                  class="app-cl-btn app-cl-warn app-cl-icon app-cmd-remove-number-input"
+                >
+                  <i class="material-symbols-outlined">delete_forever</i>
+                </button>
+              </div>
+            </template>
+          </section>
+
+          <section>
+            <div class="app-cmp-number">
+              <label>
+                <b>Result</b>
+                <output
+                  class="app-cl-number app-out-number"
+                  style="padding-right: calc(5ch + 3px)"
+                  >0</output
+                >
+              </label>
+            </div>
+          </section>
+        </div>
+      </article>
+    </template>
+  </body>
+</html>
